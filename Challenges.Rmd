@@ -7,35 +7,20 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 #CHALLENGE 1
 
+```{r}
 v<-c("Stately,", "plump", "Buck", "Mulligan", "came", "from", "the", "stairhead,", "bearing", "a", "bowl", "of", "lather", "on", "which", "a", "mirror", "and", "a",  "razor", "lay", "crossed.")
 
 v[c(3, 6, 9, 12, 15, 18, 21)]
+
 #I have selected the words in postitions that are multiple of 3
+```
 
 #CHALLENGE 2
 
+```{r}
 m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
 
 a<-m[,2]
@@ -45,24 +30,30 @@ c<-m[,6]
 
 x<-c(a, b, c)
 #Second I create another vector called "x" that contains the vectors "a", "b" and "c".
+x
+```
 
+```{r}
 d<-m[6,]
 e<-m[8,]
 x<-c(d, e)
 #Same as above
+```
 
 #CHALLENGE 3
 
+```{r}
 a<-array(data=400:1, dim=c(5, 5, 4, 4))
 a
 
-a[1, 1, 1, 2]
-#Slection of the values in row 1, column 1, level 1 and level set 2.
-a[2, 3, 2, ]
-#Selection of the values in row 2, column 3 and level 2 from every level set.
-a[1:5, 1:5, 3, 3]
-#Selection of the values from row and column 1-5 from level 3 of the level set 3.
+a[1, 1, 1, 2]#Slection of the values in row 1, column 1, level 1 and level set 2.
+a[2, 3, 2, ] #Selection of the values in row 2, column 3 and level 2 from every level set.
+a[1:5, 1:5, 3, 3] #Selection of the values from row and column 1-5 from level 3 of the level set 3.
+```
 
+"Overwriting" 
+
+```{r}
 m[7, 1] <- 564
 #The value from row 7, column 1 is now the value "564".
 m[, 8] <- 2
@@ -75,9 +66,12 @@ m[2:5, 4:8] <- matrix(data = c(20:1), nrow = 4, ncol = 5, byrow = TRUE)
 #The values from the rows 2 to 5 and from the columns 4 to 8 of the matrix called "m" are substituted for the values from a new matrix called "matrix" with 4 rows and 5 columns. "matrix" contains values from 20 to 1 (descending order) ordered by rows.
 m[, 8] <- c("a", "b")
 #The values from column 8 are substituted for a vector that has two characters: "a" and "b". As there are 8 rows in the matrix and the vector only contains 2 values, "a" and "b" are repeated.
+```
+
 
 #CHALLENGE 4
 
+```{r}
 Lemuroidea <- c("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae",
     "Daubentoniidae")
 Lorisoidea <- c("Lorisidae", "Galagidae")
@@ -93,7 +87,6 @@ names(Anthropoidea)<-list("Catarrhini", "Platyrrhini")
 #List called "Anthropoidea" that includes the 2 vectors "Catarrhini" and "Platyrrhini".
 
 Tarsioidea<-c("Tarsiidae")
-
 Haplorhini<-list(Anthropoidea, Tarsioidea)
 names(Haplorhini)<-list("Anthropoidea", "Tarsioidea")
 #List called "Haplorhini" that contains the list "Anthropoidea" and the vector "Tarsioidea".
@@ -103,23 +96,28 @@ names(Primates)<-list("Haplorhini", "Strepsirhini")
 #List called "Primates" that contains the list "Haplorhini" and "Strepsirhini".
 
 Primates
+```
 
 #CHALLENGE 5
 
+```{r}
 m3<-matrix (data = c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2), nrow=5, ncol=3, byrow=TRUE)
 
 df<-data.frame(m3)
-as.logical(df[,2])
-#I am indicating that the values from column 2 of the data frame become logical values.
-as.factor(df[,3])
-#I am indicating that the values from column 3 of the data frame become factor values (1 or 2).
+as.logical(df[,2]) #I am indicating that the values from column 2 of the data frame become logical values.
+
+as.factor(df[,3]) #I am indicating that the values from column 3 of the data frame become factor values (1 or 2).
 str(df)
+```
 
 #CHALLENGES
 
 #The most difficult parts to me were:
-  #Trying to use the "stringr" package. Solution: I gave up and tried another way to solve the problem.
-  #Reading and understanding the "Help" sections of R (package, function...). Solution: I red again the information for the module and tried different options of coding till I understood how to do it (in Challenge 5)
-  #Finish Challenge 2. Solution: I could not find the way to do it directly, so I end up doing it by several steps.
+  
+  -Trying to use the "stringr" package. Solution: I gave up and tried another way to solve the problem.
+  
+  -Reading and understanding the "Help" sections of R (package, function...). Solution: I red again the information for the module and tried different options of coding till I understood how to do it (in Challenge 5)
+  
+  -Finish Challenge 2. Solution: I could not find the way to do it directly, so I end up doing it by several steps.
 
   
