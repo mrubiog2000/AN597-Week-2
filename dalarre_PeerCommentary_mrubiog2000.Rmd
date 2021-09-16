@@ -18,13 +18,13 @@ v[c(3, 6, 9, 12, 15, 18, 21)]
 #I have selected the words in postitions that are multiple of 3
 ```
 
-Peer commentary for challenge 1:
-
-The challenge is correctly achieved, so this code is perfectly right. But if you want there are some functions that allow to write this in a more concise way.
-    - You could use v[seq()], which allows you to call the elements every x position instead of calling a vector containing every 3rd position
+D: The challenge is correctly achieved, so this code is perfectly right. But if you want there are some functions that allow to write this in a more concise way.
+    - You could use v[seq()], as Zoe suggested during office hours, which allows you to call the elements every x position instead of calling a vector containing every 3rd position
     - If you want to use the stringr package (I saw that that was one of your issues in the section challenges) you can do the following (This also allows you to not need to separate every word in the sentence in your vector v):
 
 ```{r}
+## Part of Diego's peer commentary
+
 v <- c("Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed.")
 w <- stringr :: str_split(v, pattern = " ")
 names(w) <- c("string")
@@ -32,7 +32,7 @@ w <- gsub("[[:punct:]]","",w$string)
 w[seq(from = 1 , to = 22, by = 3)]
 
 ```
-I don't know if this is the most efficient way to do it but it worked for me. The str_split function divides the vector v in words (divides every " "). However, I don't know why but this separate words are stored as a vector inside of a list, so in order to interact with it you have to name it. After that, the gsub function removes punctuation and special characters, and the words get stored as a vector outside a list again. To end, you call every 3rd element of this new vector using the seq function.
+D: I don't know if this is the most efficient way to do it but it worked for me. The str_split function divides the vector v in words (divides every " "). However, I don't know why but this separate words are stored as a vector inside of a list, so in order to interact with it you have to name it. After that, the gsub function removes punctuation and special characters, and the words get stored as a vector outside a list again. To end, you call every 3rd element of this new vector using the seq function.
 Using the stringr package in this challenge isn't more concise than what you did, but I believe that if you have a larger sentence or text it is useful to use it.
 
 
@@ -51,12 +51,17 @@ x<-c(a, b, c)
 x
 ```
 
+D:As in the first challenge, this way is fine but you can save time by extracting everything at once with a <- m[,c(2,3,6)]
+
 ```{r}
 d<-m[6,]
 e<-m[8,]
 x<-c(d, e)
 #Same as above
 ```
+
+D: Here the challenge asks you to extract from row 6 to 8, so you missed the 7th one. You can do x <- m[6:8,] or create another variable f <- [7,].
+You also missed the last part of the challenge where they asked you to extract he elements from row 2, column 2 to row 6, column 9 
 
 #CHALLENGE 3
 
@@ -68,6 +73,8 @@ a[1, 1, 1, 2]#Slection of the values in row 1, column 1, level 1 and level set 2
 a[2, 3, 2, ] #Selection of the values in row 2, column 3 and level 2 from every level set.
 a[1:5, 1:5, 3, 3] #Selection of the values from row and column 1-5 from level 3 of the level set 3.
 ```
+
+D: I think this is the best way to write this code. The commentaries were also very detailed :)
 
 "Overwriting" 
 
@@ -115,6 +122,8 @@ names(Primates)<-list("Haplorhini", "Strepsirhini")
 
 Primates
 ```
+D: Very clear and I also think is the fastest way to do this list
+
 
 #CHALLENGE 5
 
@@ -127,6 +136,15 @@ as.logical(df[,2]) #I am indicating that the values from column 2 of the data fr
 as.factor(df[,3]) #I am indicating that the values from column 3 of the data frame become factor values (1 or 2).
 str(df)
 ```
+D: When I run your code, the data frame remains with the original numeric type of values. I had that issue too. It seems that when you use the functions "as.---", you call what it would be if that row was that type of value, but you don't permanently change the type of values inside the data frame. I finally could change it permanently in the data frame by doing this:
+
+```{r}
+## part of Diego's peer commentary
+df[,2] = as.logical(df[,2])
+df[,3] = as.factor(df[,3])
+```
+
+D: I don't know if what i did is the best way to achieve it but it works
 
 #CHALLENGES
 
@@ -138,4 +156,5 @@ str(df)
   
   -Finish Challenge 2. Solution: I could not find the way to do it directly, so I end up doing it by several steps.
 
+D: Overall, I think your code was good. At some points you didn't choose the fastest option, but you still came up with something that works and that's what matters. I hope my commentaries help you.
   
