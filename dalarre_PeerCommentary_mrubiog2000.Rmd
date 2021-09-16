@@ -51,7 +51,7 @@ x<-c(a, b, c)
 x
 ```
 
-D:As in the first challenge, this way is fine but you can save time by extracting everything at once with a <- m[,c(2,3,6)]
+D:As in the first challenge, this way is fine but you can save time by extracting everything at once with a <- m[,c(2,3,6)]. (This also made my realize that I also haven't done it that way, so I'll change it on my code)
 
 ```{r}
 d<-m[6,]
